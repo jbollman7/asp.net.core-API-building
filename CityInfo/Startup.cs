@@ -30,6 +30,8 @@ namespace CityInfo
                 app.UseExceptionHandler();      //Prod. This block will run if the aws env variable in VS was set from develop to prod.
             }
 
+            app.UseStatusCodePages();        // status code page middleware. simple text-based handler added to the request pipeline.
+            //This produces a status code 404 not found, because we dont have a startup page.
             app.UseMvc();
             /*
             app.Run(async (context) =>
