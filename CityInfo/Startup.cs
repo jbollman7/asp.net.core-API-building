@@ -19,7 +19,7 @@ namespace CityInfo
         {
             services.AddMvc()
                 .AddMvcOptions(o => o.OutputFormatters.Add(
-                    new XmlSerializerOutputFormatter()));
+                    new XmlDataContractSerializerOutputFormatter()));
             /*
              Below is a fancy way of serializing the output. Meaning, i have the class attriubtes uppercase. By default, the output is in pascal case.
              if i uncomment the below code, it will take it verbatim on how i wrote it. Only needed if it was a aestic requirement. Most likely
