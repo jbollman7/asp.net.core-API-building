@@ -1,6 +1,7 @@
 using System.Linq;
 using CityInfo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo.Controllers
 {
@@ -45,6 +46,11 @@ namespace CityInfo.Controllers
             if (pointOfInterest == null)
             {
                 return BadRequest();
+            }
+
+            if (pointOfInterest.Description == pointOfInterest.Name)
+            {
+                ModelState.AddModelError("Description", "The provided description should be different from the name.");
             }
 
             if (!ModelState.IsValid)
